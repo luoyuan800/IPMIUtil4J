@@ -1,0 +1,8 @@
+.classpath
+.project
+IPMI4J.iml
+bin/*/*.*
+ipmiutil-win64/*.*
+.idea/*/*.*
+.idea/*.*
+.settings/*.*
