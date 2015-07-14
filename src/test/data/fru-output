@@ -1,0 +1,56 @@
+ipmiutil ver 2.21
+fruconfig: version 2.21
+-- BMC version 0.19, IPMI version 2.0
+SDR[004c] FRU  20 00 0c 01 Baseboard FRU
+SDR[004d] FRU  20 02 15 01 Power Dist FRU
+Component FRU Size  : 256
+Product Manufacturer: DELTA
+Product Name        : AC-061 B
+Product Part Number : D76441-003
+Product Version     : 00
+Product Serial Num  : DLD0719000969
+Product Asset Tag   :
+Product FRU File ID :
+SDR[004e] FRU  20 03 0a 01 Pwr Supply 1 FRU
+Component FRU Size  : 256
+Product Manufacturer: DELTA
+Product Name        : DPS-450KBA
+Product Part Number : D40117-007
+Product Version     : S6
+Product Serial Num  : DLD0721003047
+Product Asset Tag   :
+Product FRU File ID :
+SDR[004f] FRU  20 04 0a 02 Pwr Supply 2 FRU
+Component FRU Size  : 256
+Product Manufacturer: DELTA
+Product Name        : DPS-450KBA
+Product Part Number : D40117-003
+Product Version     : S2
+Product Serial Num  : DLC0630000244
+Product Asset Tag   :
+Product FRU File ID :
+SDR[0050] IPMB 20 00 07 01 Basbrd Mgmt Ctlr
+
+Mainboard FRU Size  : 256
+Chassis Type        : Rack-Mount Chassis
+Chassis Part Number : TIGW1U
+Chassis Serial Num  :
+Chassis OEM Field   : TIGW1U
+Board Mfg DateTime  : Sun Jun 17 16:11:00 2007
+Board Manufacturer  : Intel
+Board Product Name  : S5000PHB
+Board Serial Number : CFTW72400602
+Board Part Number   : D40552-601
+Board FRU File ID   : FRU Ver 0.05
+Board OEM Field     :
+Product Manufacturer: Intel
+Product Name        : S5000PHB
+Product Part Number : TMWA0201W
+Product Version     :
+Product Serial Num  : sernum4wd
+Product Asset Tag   : asset4wd
+Product FRU File ID :
+Product OEM Field   :
+System GUID         : b1d84f76-1de2-11dc-b3e8-000e0cc71ba0
+BIOS Version        : S5000.86B.10.00.D414.081520081354
+fruconfig, completed successfully

@@ -13,7 +13,7 @@ public class Command {
 			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
 			String line = null;
 			while ((line = br.readLine()) != null) {
-				out.add(line);
+				out.add(line.trim());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -9,9 +9,26 @@
 
 package respond;
 
+import model.Fru;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class FruRespond implements IPMIRespond{
+    private List<Fru> frus;
+    private boolean isSuccess;
+    public void addFru(Fru fru){
+        if(frus == null){
+            frus = new ArrayList<Fru>();
+        }
+        frus.add(fru);
+    }
     @Override
     public boolean hasResponsed() {
-        return false;
+        return isSuccess;
+    }
+
+    public void setSuccess(boolean isSuccess) {
+        this.isSuccess = isSuccess;
     }
 }

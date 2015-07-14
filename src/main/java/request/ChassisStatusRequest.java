@@ -17,9 +17,8 @@ public class ChassisStatusRequest implements IPMIRequest {
     public ChassisStatusRespond sendTo(IPMIClient client) {
         OutputResult or;
         ChassisStatusRespond csr = new ChassisStatusRespond();
-
         if (client instanceof LocalIPMIClient) {
-            or = command.exeCmd("ipmiutil health");
+            or = command.exeCmd(client.getIPMI_META_COMMAND() + " ipmiutil health");
         } else {
             or = command.exeCmd(String.format("%s health -N %s -U 5s -P %s -J %s", client.getIPMI_META_COMMAND(), client.getHost(), client.getUser(), client.getPassword(), client.getCs().getId()));
         }

@@ -1,0 +1,12 @@
+ipmiutil ver 2.13
+alarms ver 2.13
+-- BMC version 0.19, IPMI version 2.0
+Alarm LEDs:   critical = off major = off minor = off power = off
+Alarm Relays: major = off  minor = off
+disk slot 0 LED:   off
+disk slot 1 LED:   off
+disk slot 2 LED:   off
+disk slot 3 LED:   off
+disk slot 4 LED:   off
+disk slot 5 LED:   off
+alarms, completed successfully
