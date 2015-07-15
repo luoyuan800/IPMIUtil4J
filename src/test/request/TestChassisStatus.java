@@ -24,6 +24,7 @@ import java.io.InputStreamReader;
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static util.ReadFileAsInput.*;
 
 public class TestChassisStatus {
     @Test
@@ -40,13 +41,4 @@ public class TestChassisStatus {
         Assert.assertEquals(respond.getPowerRestorePolicy(), "stay_off");
     }
 
-    private OutputResult readFile(String path) throws IOException {
-        OutputResult or = new OutputResult();
-        BufferedReader br = new BufferedReader((new InputStreamReader(this.getClass().getResourceAsStream(path))));
-        String line;
-        while ((line = br.readLine()) != null) {
-            or.add(line);
-        }
-        return or;
-    }
 }
