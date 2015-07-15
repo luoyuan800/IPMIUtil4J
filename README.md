@@ -4,3 +4,4 @@
 - The bottom implementation is IPMIUtil.
 - Current just support run in win64 OS, Linux coming soon.
 - Download the ipmiutil for win64 and put it into the ipmiutil-win64/ folder, then you can use this source code for you IPMI devlopment.
+- ipmiutil: http://ipmiutil.sourceforge.net/
