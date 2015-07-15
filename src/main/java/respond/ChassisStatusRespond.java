@@ -10,6 +10,7 @@ public class ChassisStatusRespond implements IPMIRespond {
 	private boolean isCoolingFanFault;
 	private long powerOnHours;
 	private boolean isChassisStatusOk;
+	private boolean success;
 	public String getSelftest() {
 		return selftest;
 	}
@@ -66,7 +67,10 @@ public class ChassisStatusRespond implements IPMIRespond {
 	}
 	@Override
 	public boolean hasResponsed() {
-		return isChassisStatusOk;
+		return success;
 	}
 
+	public void setSuccess(boolean success) {
+		this.success = success;
+	}
 }

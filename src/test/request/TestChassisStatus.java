@@ -1,7 +1,7 @@
 /*
- * testFru.java
- * Date: 7/14/2015
- * Time: 5:24 PM
+ * TestChassisStatus.java
+ * Date: 7/15/2015
+ * Time: 9:42 AM
  * 
  * Copyright 2015 luoyuan.
  * ALL RIGHTS RESERVED.
@@ -12,12 +12,10 @@ package request;
 import client.LocalIPMIClient;
 import command.Command;
 import command.OutputResult;
-import model.ComponentFru;
-import org.hamcrest.Matcher;
 import org.junit.Assert;
 import org.junit.Test;
 import param.Platform;
-import respond.FruRespond;
+import respond.ChassisStatusRespond;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -27,18 +25,19 @@ import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class TestFru {
-
+public class TestChassisStatus {
     @Test
-    public void testFruRequest() throws IOException {
+    public void testHealthCommand() throws IOException {
         Command command = mock(Command.class);
-        when(command.exeCmd(contains("ipmiutil fru"))).thenReturn(readFile("../data/fru-output"));
+        when(command.exeCmd(contains("ipmiutil health"))).thenReturn(readFile("../data/health-output"));
         LocalIPMIClient client = new LocalIPMIClient(Platform.Win64);
-        FruRequest request = new FruRequest();
+        ChassisStatusRequest request = new ChassisStatusRequest();
         request.setCommand(command);
-        FruRespond respond = request.sendTo(client);
+        ChassisStatusRespond respond = request.sendTo(client);
         Assert.assertTrue(respond.hasResponsed());
-        Assert.assertSame(respond.getFrus(ComponentFru.class).size(), 3);
+        Assert.assertEquals(respond.getSelftest(), "OK");
+        Assert.assertSame(respond.isPowerOn(), true);
+        Assert.assertEquals(respond.getPowerRestorePolicy(), "stay_off");
     }
 
     private OutputResult readFile(String path) throws IOException {

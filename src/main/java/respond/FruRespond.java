@@ -12,6 +12,7 @@ package respond;
 import model.Fru;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FruRespond implements IPMIRespond{
@@ -30,5 +31,18 @@ public class FruRespond implements IPMIRespond{
 
     public void setSuccess(boolean isSuccess) {
         this.isSuccess = isSuccess;
+    }
+
+    public List<Fru> getFrus(Class clazz){
+        if(frus == null){
+            return Collections.emptyList();
+        }
+        List<Fru> rs = new ArrayList<Fru>(frus.size());
+        for(Fru fru : frus){
+            if(fru.getClass().equals(clazz)){
+                rs.add(fru);
+            }
+        }
+        return rs;
     }
 }

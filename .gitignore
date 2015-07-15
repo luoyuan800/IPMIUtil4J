@@ -6,3 +6,4 @@ ipmiutil-win64/*.*
 .idea/*/*.*
 .idea/*.*
 .settings/*.*
+bin/*

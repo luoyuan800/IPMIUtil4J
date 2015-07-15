@@ -1,7 +1,6 @@
 package request;
 
 import client.IPMIClient;
-import client.LocalIPMIClient;
 import command.Command;
 import command.OutputResult;
 import model.ComponentFru;
@@ -14,8 +13,7 @@ import utils.StringUtils;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FruRequest implements IPMIRequest {
-    private String commandString = "fru";
+public class FruRequest extends AbstractRequest {
     private Command command = new Command();
 
     public void setCommand(Command command) {
@@ -50,14 +48,8 @@ public class FruRequest implements IPMIRequest {
     public FruRespond sendTo(IPMIClient client) {
         OutputResult or;
         FruRespond fr = new FruRespond();
-        StringBuilder sb = new StringBuilder(client.getIPMI_META_COMMAND()).append(" ").append(commandString);
-        System.out.println(sb);
-        if (client instanceof LocalIPMIClient) {
-            or = command.exeCmd(sb.toString());
-        } else {
-            sb.append(" -N ").append(client.getHost()).append(" -U ").append(client.getUser()).append(" -P ").append(client.getPassword()).append(" -J ").append(client.getCs().getId());
-            or = command.exeCmd(sb.toString());
-        }
+        String order = buildCommand(client);
+        or = command.exeCmd(order);
         if (or != null && or.isNotEmpty()) {
             Fru fru = null;
             String name = "";
@@ -190,4 +182,9 @@ public class FruRequest implements IPMIRequest {
         return fr;
     }
 
+    @Override
+    public String getCommandString() {
+        String commandString = "fru";
+        return commandString;
+    }
 }
