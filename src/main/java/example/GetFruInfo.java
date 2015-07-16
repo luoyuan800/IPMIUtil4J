@@ -10,15 +10,21 @@
 package example;
 
 import client.IPMIClient;
+import model.ComponentFru;
 import param.CipherSuite;
 import param.Platform;
 import request.FruRequest;
+import respond.FruRespond;
 
 public class GetFruInfo {
         public static void main(String[]args){
             IPMIClient client = new IPMIClient("10.4.33.146", "Adminstrator", "rdis2fun", CipherSuite.cs3, Platform.Win64 );
             FruRequest fruRequest = new FruRequest();
-            fruRequest.sendTo(client);
-            //System.out.println("Is device reacherable by IPMI? " + (client.verify() ? "Yes!" : "No!"));
+            FruRespond  respond = fruRequest.sendTo(client);
+            for(ComponentFru fru : respond.<ComponentFru>getFrus(ComponentFru.class)){
+                System.out.println(fru.getName());
+                System.out.println(fru.getProductName());
+                System.out.println(fru.getProductManufacturer());
+            }
         }
 }

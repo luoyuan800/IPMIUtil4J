@@ -3,6 +3,7 @@ package client;
 import param.CipherSuite;
 import param.Platform;
 import request.ChassisStatusRequest;
+import request.ResetRequest;
 import respond.ChassisStatusRespond;
 
 public class IPMIClient {
@@ -11,6 +12,7 @@ public class IPMIClient {
 	private String password;
 	private String host;
 	private CipherSuite cs;
+	private boolean systemPowerUp;
 	public String getHost() {
 		return host;
 	}
@@ -35,11 +37,48 @@ public class IPMIClient {
 	public boolean verify(){
 		ChassisStatusRequest request = new ChassisStatusRequest();
 		ChassisStatusRespond chassis = request.sendTo(this);
+		systemPowerUp = chassis.isPowerOn();
 		return chassis.isChassisStatusOk();
 	}
 
+	public boolean powerUpSystem(){
+		ResetRequest request = new ResetRequest();
+		request.setPowerUpSystem(true);
+		if(request.sendTo(this).hasResponsed()){
+			systemPowerUp = true;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public boolean powerDownSystem(){
+		ResetRequest request = new ResetRequest();
+		request.setPowerDownSystem(true);
+		if(request.sendTo(this).hasResponsed()){
+			systemPowerUp = false;
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	public boolean powerCycleSystem(){
+		if(systemPowerUp) {
+			ResetRequest request = new ResetRequest();
+			request.setPowerCycleSystem(true);
+			return request.sendTo(this).hasResponsed();
+		}else{
+			systemPowerUp = powerUpSystem();
+			return systemPowerUp;
+		}
+	}
 
 	public String getIPMI_META_COMMAND() {
 		return IPMI_META_COMMAND;
+	}
+
+	public boolean isSystemPowerUp() {
+		return systemPowerUp;
 	}
 }

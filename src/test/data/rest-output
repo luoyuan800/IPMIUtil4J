@@ -1,0 +1,9 @@
+# ipmiutil reset -n
+ipmiutil ver 2.21
+hwreset ver 2.21
+-- BMC version 0.19, IPMI version 2.0
+Power State      = 00   (S0: working)
+hwreset: sending NMI ...
+chassis_reset ok
+hwreset: IPMI_Reset ok
+hwreset, completed successfully

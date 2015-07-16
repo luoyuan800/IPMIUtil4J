@@ -33,14 +33,14 @@ public class FruRespond implements IPMIRespond{
         this.isSuccess = isSuccess;
     }
 
-    public List<Fru> getFrus(Class clazz){
+    public <T> List<T> getFrus(Class clazz){
         if(frus == null){
             return Collections.emptyList();
         }
-        List<Fru> rs = new ArrayList<Fru>(frus.size());
+        List<T> rs = new ArrayList<T>(frus.size());
         for(Fru fru : frus){
             if(fru.getClass().equals(clazz)){
-                rs.add(fru);
+                rs.add((T)fru);
             }
         }
         return rs;
