@@ -11,7 +11,32 @@ public class Command {
 		try {
 			Process p = Runtime.getRuntime().exec(commandStr);
 			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
-			String line = null;
+			String line;
+			while ((line = br.readLine()) != null) {
+				out.add(line.trim());
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally{
+			if (br != null)
+			{
+				try {
+					br.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return out;
+	}
+	public OutputResult exeCmdOnLinux(String cmd){
+		String[] command = {"/bin/sh", "-c", cmd};
+		OutputResult out = new OutputResult();
+		BufferedReader br = null;
+		try {
+			Process p = Runtime.getRuntime().exec(command);
+			br = new BufferedReader(new InputStreamReader(p.getInputStream()));
+			String line;
 			while ((line = br.readLine()) != null) {
 				out.add(line.trim());
 			}
