@@ -7,8 +7,10 @@
 - If Someone could support really IPMI device for test, it should be very helpful.
 - Create issue for any question or feature.
 - ipmiutil: http://ipmiutil.sourceforge.net/
+
 ---
-# IPMIUtil4J -cn
+
+# IPMIUtil4J 
 - 用Java语言基于ipmiutil实现的一个IPMI框架
 - 可以使用这个框架基于Java进行IPMI开发
 - 基于win平台的开发需要先下载ipmiutil对应的win64/32版本，并且解压下载的zip包到对应的文件夹内
