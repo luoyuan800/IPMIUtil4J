@@ -1,0 +1,28 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+version = '1.0.0'
+
+jar {
+    name = 'IPMIUtil4J'
+    manifest{
+        attributes 'Title': 'IPMIUtil4J', 'Version' : version, 'Author':'LuoYuan'
+    }
+    metaInf {
+        from('.') {
+            include '**/*.md'
+        }
+        includeEmptyDirs = false
+    }
+}
+sourceSets{
+    main {
+        java{
+            srcDir 'src/main/java'
+        }
+    }
+}
+
+task javaDoces(type: Javadoc){
+    source = sourceSets.main.allJava
+}

@@ -1,9 +1,13 @@
 .classpath
 .project
 IPMI4J.iml
+IPMIUtil4J.iml
 bin/*/*.*
 ipmiutil-win64/*.*
 .idea/*/*.*
 .idea/*.*
 .settings/*.*
 bin/*
+build/*
+build/*/*
+.gradle/*/*
