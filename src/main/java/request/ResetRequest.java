@@ -47,7 +47,7 @@ public class ResetRequest extends AbstractRequest {
             if(endP.matcher(line).find()){
                 return new IPMIRespond() {
                     @Override
-                    public boolean hasResponsed() {
+                    public boolean hasRespond() {
                         return true;
                     }
                 };
@@ -55,7 +55,7 @@ public class ResetRequest extends AbstractRequest {
         }
         return new IPMIRespond() {
             @Override
-            public boolean hasResponsed() {
+            public boolean hasRespond() {
                 return false;
             }
         };

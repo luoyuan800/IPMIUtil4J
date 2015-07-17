@@ -66,7 +66,7 @@ public class ChassisStatusRespond implements IPMIRespond {
 		this.isChassisStatusOk = isChassisStatusOk;
 	}
 	@Override
-	public boolean hasResponsed() {
+	public boolean hasRespond() {
 		return success;
 	}
 

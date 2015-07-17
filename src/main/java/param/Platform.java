@@ -9,6 +9,8 @@
 package param;
 
 public enum Platform {
+    TIGPT1U(""),
+    NSC2U(""),
     Ubuntu("/bin/sh -c ipmiutil"),
     Linux("/bin/sh -c ipmiutil"),
     Win32("cmd.exe /C ipmiutil-win32/ipmiutil"),

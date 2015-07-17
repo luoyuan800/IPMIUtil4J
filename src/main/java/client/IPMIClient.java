@@ -13,6 +13,7 @@ public class IPMIClient {
 	private String host;
 	private CipherSuite cs;
 	private boolean systemPowerUp;
+	private Platform platform;
 	public String getHost() {
 		return host;
 	}
@@ -32,6 +33,7 @@ public class IPMIClient {
 		this.user = user;
 		this.cs = cs;
 		IPMI_META_COMMAND = platform.getIPMI_META_COMMAND();
+		this.platform = platform;
 	}
 
 	public boolean verify(){
@@ -44,7 +46,7 @@ public class IPMIClient {
 	public boolean powerUpSystem(){
 		ResetRequest request = new ResetRequest();
 		request.setPowerUpSystem(true);
-		if(request.sendTo(this).hasResponsed()){
+		if(request.sendTo(this).hasRespond()){
 			systemPowerUp = true;
 			return true;
 		}else{
@@ -55,7 +57,7 @@ public class IPMIClient {
 	public boolean powerDownSystem(){
 		ResetRequest request = new ResetRequest();
 		request.setPowerDownSystem(true);
-		if(request.sendTo(this).hasResponsed()){
+		if(request.sendTo(this).hasRespond()){
 			systemPowerUp = false;
 			return true;
 		}else{
@@ -67,7 +69,7 @@ public class IPMIClient {
 		if(systemPowerUp) {
 			ResetRequest request = new ResetRequest();
 			request.setPowerCycleSystem(true);
-			return request.sendTo(this).hasResponsed();
+			return request.sendTo(this).hasRespond();
 		}else{
 			systemPowerUp = powerUpSystem();
 			return systemPowerUp;
@@ -80,5 +82,9 @@ public class IPMIClient {
 
 	public boolean isSystemPowerUp() {
 		return systemPowerUp;
+	}
+
+	public Platform getPlatform() {
+		return platform;
 	}
 }

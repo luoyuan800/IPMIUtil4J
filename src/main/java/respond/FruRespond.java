@@ -18,14 +18,14 @@ import java.util.List;
 public class FruRespond implements IPMIRespond{
     private List<Fru> frus;
     private boolean isSuccess;
-    public void addFru(Fru fru){
+    public synchronized void addFru(Fru fru){
         if(frus == null){
             frus = new ArrayList<Fru>();
         }
         frus.add(fru);
     }
     @Override
-    public boolean hasResponsed() {
+    public boolean hasRespond() {
         return isSuccess;
     }
 

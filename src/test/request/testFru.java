@@ -11,17 +11,13 @@ package request;
 
 import client.LocalIPMIClient;
 import command.Command;
-import command.OutputResult;
 import model.ComponentFru;
-import org.hamcrest.Matcher;
 import org.junit.Assert;
 import org.junit.Test;
 import param.Platform;
 import respond.FruRespond;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
@@ -38,7 +34,7 @@ public class TestFru {
         FruRequest request = new FruRequest();
         request.setCommand(command);
         FruRespond respond = request.sendTo(client);
-        Assert.assertTrue(respond.hasResponsed());
+        Assert.assertTrue(respond.hasRespond());
         Assert.assertSame(respond.getFrus(ComponentFru.class).size(), 3);
     }
 

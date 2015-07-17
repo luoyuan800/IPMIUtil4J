@@ -11,6 +11,7 @@ package request;
 
 import client.IPMIClient;
 import client.LocalIPMIClient;
+import command.Command;
 import param.AuthenticationType;
 import param.DriverType;
 import param.PrivilegeLevel;
@@ -19,6 +20,13 @@ public abstract class AbstractRequest implements IPMIRequest{
     private DriverType driverType;
     private AuthenticationType authenticationType;
     private PrivilegeLevel privilegeLevel;
+    protected Command command;
+    public AbstractRequest(Command command){
+        this.command = command;
+    }
+    public AbstractRequest(){
+        this.command = new Command();
+    }
 
     public DriverType getDriverType() {
         return driverType;

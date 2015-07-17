@@ -11,15 +11,12 @@ package request;
 
 import client.LocalIPMIClient;
 import command.Command;
-import command.OutputResult;
 import org.junit.Assert;
 import org.junit.Test;
 import param.Platform;
 import respond.ChassisStatusRespond;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 import static org.mockito.Matchers.contains;
 import static org.mockito.Mockito.mock;
@@ -35,7 +32,7 @@ public class TestChassisStatus {
         ChassisStatusRequest request = new ChassisStatusRequest();
         request.setCommand(command);
         ChassisStatusRespond respond = request.sendTo(client);
-        Assert.assertTrue(respond.hasResponsed());
+        Assert.assertTrue(respond.hasRespond());
         Assert.assertEquals(respond.getSelftest(), "OK");
         Assert.assertSame(respond.isPowerOn(), true);
         Assert.assertEquals(respond.getPowerRestorePolicy(), "stay_off");

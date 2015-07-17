@@ -18,11 +18,11 @@ public class SensorRespond implements IPMIRespond {
     private List<Sensor> sensors;
     private boolean success;
     @Override
-    public boolean hasResponsed() {
+    public boolean hasRespond() {
         return success;
     }
 
-    public void addSensor(Sensor sensor){
+    public synchronized void addSensor(Sensor sensor){
         if(sensors==null){
             sensors = new ArrayList<Sensor>();
         }
