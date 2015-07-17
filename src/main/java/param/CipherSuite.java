@@ -1,5 +1,9 @@
 package param;
 
+/**
+ * Cipher suite is use for Lan plus, and current this IPMIUtil4J just support the lan plus.
+ * Each cipher suite have it own combination, it was define in the IPMI2.0
+ */
 public enum CipherSuite {
 	cs0(0,"NONE", "NONE", "NONE"),
     cs1(1,"SHA1", "NONE", "NONE"),

@@ -8,7 +8,9 @@
 */
 
 package example;
-
+/**
+ * An example for how to use FruRequest to get the Fru info
+ */
 import client.IPMIClient;
 import model.ComponentFru;
 import param.CipherSuite;
@@ -18,7 +20,7 @@ import respond.FruRespond;
 
 public class GetFruInfo {
         public static void main(String[]args){
-            IPMIClient client = new IPMIClient("10.4.33.146", "Adminstrator", "rdis2fun", CipherSuite.cs3, Platform.Win64 );
+            IPMIClient client = new IPMIClient("10.1.1.146", "Adminstrator", "1234567890", CipherSuite.cs3, Platform.Win64 );
             FruRequest fruRequest = new FruRequest();
             FruRespond  respond = fruRequest.sendTo(client);
             for(ComponentFru fru : respond.<ComponentFru>getFrus(ComponentFru.class)){
