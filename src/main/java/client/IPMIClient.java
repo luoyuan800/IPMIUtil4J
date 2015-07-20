@@ -74,7 +74,7 @@ public class IPMIClient {
 
 	/**
 	 * Power down the system in target device chassis
-	 * @return If return true, the IPMIClient.powerUp will set as true
+	 * @return If return true, the IPMIClient.powerUp will set as false
 	 */
 	public boolean powerDownSystem(){
 		ResetRequest request = new ResetRequest();
@@ -88,7 +88,7 @@ public class IPMIClient {
 	}
 
 	/**
-	 * Power down the system in target device chassis
+	 * Power cycle the system in target device chassis
 	 * Will try to check if the system already power up,
 	 * if not, just power up system,
 	 * if yes, will do the restart.
@@ -116,7 +116,7 @@ public class IPMIClient {
 
 	/**
 	 * This is not a real time status of the target device system
-	 * If the powerUpSystem or powerCycleSystem() have been called before, this status will set as true
+	 * If the powerUpSystem() or powerCycleSystem() have been called before, this status will set as true
 	 * @return
 	 * @see #powerUpSystem()
 	 * @see #powerCycleSystem()
