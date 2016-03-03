@@ -7,6 +7,7 @@
 - If Someone could support really IPMI device for test, it should be very helpful.
 - Create issue for any question or feature.
 - ipmiutil: http://ipmiutil.sourceforge.net/
+- How to use Gradle to build this project.
 
 ---
 
@@ -19,6 +20,7 @@
 - 一直都是基于IPMI simulator进行开发测试，实际运行环境下的状态暂未有测试。所以期望能有感兴趣的朋友提供IPMI主机给这项目进行测试用
 - 欢迎提供建议（在issue中提交您的建议）
 - ipmiutil的下载地址：http://ipmiutil.sourceforge.net/
+- 使用Gradle创建jar包：http://luoyuan800.github.io/2015/07/03/gradle/
 
 
 Contact Me on luoyuan800@163.com
